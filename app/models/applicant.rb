@@ -10,4 +10,24 @@ class Applicant < ActiveRecord::Base
   validates :phone_type, presence: true
   validates :workflow_state, presence: true
   validates :region, presence: true
+
+  before_validation :set_default_workflow_state, on: :create
+
+  state_machine :state, initial: :basic_info do
+    event :next_step do
+      transition base: :background_check
+      transition background_check: :confirmation
+    end
+
+    state :basic_info
+    state :background_check
+    state :confirmation
+  end
+
+
+  private
+
+    def set_first_workflow_state
+        self.workflow_state ||= WORKFLOW_STATES.first
+    end
 end

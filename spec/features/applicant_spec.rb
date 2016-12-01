@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Applicant' do
-  scenario '2 step applicant sign up' do
+  scenario '2 step applicant form' do
     visit root_path
     within(:css, "div.info") do
       click_link('Apply Now')
