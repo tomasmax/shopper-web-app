@@ -1,0 +1,42 @@
+.container
+  .info
+    .section-content
+      .jumbotron
+        .logo
+          = image_tag(asset_path("logo-big.png"))
+        .section-title
+          Earn easy money Shopping or Delivering Groceries with Instacart
+        %h3
+          You can earn money while you are having fun
+        .top-margin
+          = link_to('Apply Now', new_applicant_path, class: 'call-to-action')
+
+  .work-in-instacart
+    .section-content
+      .section-title
+        Work with us
+      .row
+        .col-md-6
+          %i.fa.fa-shopping-cart.stylized-fa
+          %h4
+            Work as a Shopper
+          Instacart allows you to work and have fun at the same time doing what you love. You can work either full-time
+          or part time at your own convenience
+
+        .col-md-6
+          %i.fa.fa-car.stylized-fa
+          %h4
+            Work as a Shopper and Driver
+          Deliver groceries from local stores to customers. Shop for groceries and deliver them to customers. 
+          You can enjoy and have fun at work
+
+  .action
+    .section-content
+      .section-title.bottom-spacing
+        Apply, it is quick!! 
+        You can be an Instacart shopper!!
+      .top-margin
+        = link_to('Apply Now', new_applicant_path, class: 'call-to-action')
+
+
+
