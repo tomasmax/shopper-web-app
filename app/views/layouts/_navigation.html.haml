@@ -15,6 +15,7 @@
       %ul.nav.navbar-nav.navbar-right
         %li
           = link_to('Application Status', login_path, class: 'login')
+          
       - if signed_in?
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
