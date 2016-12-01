@@ -11,4 +11,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def logged_in?
+    if signed_in?
+      redirect_to apply_applicants_path
+    end
+  end
+
 end
