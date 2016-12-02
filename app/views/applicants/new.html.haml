@@ -1,1 +1,11 @@
-- # your applicant landing page/form goes here!
+.applicant-form
+  %h1
+    Apply to be a Shopper
+
+  - if @applicant.errors.present?
+    .col-md-4.col-md-offset-4
+      - @applicant.errors.full_messages.each do |msg|
+        %p.error
+          = msg
+
+  = render partial: "form", locals: { applicant: @applicant }

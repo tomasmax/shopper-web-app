@@ -1,0 +1,11 @@
+.applicant-form
+  %h1
+    Edit your shopper application
+
+  - if @applicant.errors.present?
+    .col-md-4.col-md-offset-4
+      - @applicant.errors.full_messages.each do |msg|
+        %p.error
+          = msg
+
+  = render partial: "form", locals: { applicant: @applicant }

@@ -1,0 +1,32 @@
+.applicant-form{
+  text-align: center;
+  padding-top: 55px;
+  p {
+    text-align: left;
+  }
+
+  h1 {
+    margin-bottom: 40px;
+  }
+
+  .form-control {
+    height: 50px;
+  }
+
+  p.error {
+    color: $red;
+  }
+
+}
+
+.applicant-form-confirmation {
+  p {
+    font-size: 20px;
+  }
+
+  ul{
+    li{
+      font-size: 17px;
+    }
+  }
+}

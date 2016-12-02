@@ -1,0 +1,15 @@
+.applicant-form-confirmation
+  .col-md-6.col-md-offset-2
+    %h1
+      Application finished
+    %p
+      You have successfully submitted you application for Shopper position in Instacart.
+
+    - %w(first_name last_name phone email phone_type region).each do |attribute|
+      %ul
+        %li
+          %strong
+            = attribute.titleize
+          = current_applicant.send(attribute)
+
+    = link_to('Edit', edit_applicants_path)
