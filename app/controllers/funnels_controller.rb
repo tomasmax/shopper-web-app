@@ -5,6 +5,7 @@ class FunnelsController < ApplicationController
     respond_to do |format|
       format.html { @chart_funnel = formatted_funnel }
       format.json { render json: @funnel }
+      
     end
   end
 
