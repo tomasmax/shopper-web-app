@@ -21,7 +21,7 @@
 
 .applicant-form-confirmation {
   padding-top: 55px;
-  
+
   p {
     font-size: 20px;
   }
@@ -32,5 +32,24 @@
     li{
       font-size: 17px;
     }
+  }
+}
+
+.application-status {
+  margin-top: 55px;
+
+  form {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  input {
+    margin-top: 15px;
+    height: 55px;
+  }
+
+  button {
+    margin-top: 20px;
+    width: 100%;
   }
 }

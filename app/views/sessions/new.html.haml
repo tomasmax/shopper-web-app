@@ -1,0 +1,12 @@
+.container
+  .section-content
+    .application-status
+      .logo
+        = image_tag(asset_path("logo-big.png"))
+
+
+        = form_tag login_path, role: "form" do
+          .form-group
+            %input.form-control{name: 'email', type: "email", placeholder: "Email", required: 'required'}
+          %button.call-to-action{type:"submit"}
+            Submit
