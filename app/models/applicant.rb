@@ -26,6 +26,39 @@ class Applicant < ActiveRecord::Base
   end
 
 
+  class << self
+
+    def funnel_time_analytics(start_date:, end_date:)
+      #set the beginning of the day to the start date
+      start_date = start_date.beginning_of_day
+      #set the end of the day to the end date
+      end_date   = end_date.end_of_day
+
+      #Postgresql trunc to obtain weekly intervals in the result
+      week_interval = "DATE_TRUNC('week', created_at)::date"
+      result = Applicant.where(created_at: (start_date..end_date))
+                        .group(week_interval, :workflow_state)
+                        .order(week_interval)
+                        .count
+
+      funnel_result_json_formatter(result)
+    end
+
+    private
+
+    def funnel_result_json_formatter(result)
+      
+      formated_hash = Hash.new { |hash, key| hash[key] = {} }
+      result.each do |object, count|
+        start_of_week = object[0]
+        end_of_week = start_of_week.end_of_week
+        key = "#{start_of_week.strftime("%Y-%m-%d")}-#{end_of_week.strftime("%Y-%m-%d")}"
+        formated_hash[key][object[1]] = count
+      end
+      formated_hash
+    end
+  end
+
   private
 
     def set_first_workflow_state

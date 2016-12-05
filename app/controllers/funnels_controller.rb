@@ -1,6 +1,6 @@
 class FunnelsController < ApplicationController
   def index
-    @funnel = {} # your code goes here
+    @funnel = Applicant.funnel_time_analytics(start_date: start_date, end_date: end_date)
 
     respond_to do |format|
       format.html { @chart_funnel = formatted_funnel }
@@ -27,4 +27,14 @@ class FunnelsController < ApplicationController
       }
     end
   end
+
+  #Set default start_date and end_date parameters, in case they are blank start_date = beginning of the month and end_date = current day + one day
+  def start_date
+    params[:start_date] ? params[:start_date].to_datetime : DateTime.now.beginning_of_month
+  end
+
+  def end_date
+    params[:end_date] ? params[:end_date].to_datetime : DateTime.now + 1.day
+  end
+
 end
