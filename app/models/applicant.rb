@@ -7,16 +7,16 @@ class Applicant < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :phone, presence: true, uniqueness: true
+  validates :phone, presence: true, uniqueness: true, numericality: {only_integer: true}
   validates :phone_type, presence: true
   validates :workflow_state, presence: true
   validates :region, presence: true
 
-  before_validation :set_default_workflow_state, on: :create
+  before_validation :set_first_workflow_state, on: :create
 
   state_machine :state, initial: :basic_info do
     event :next_step do
-      transition base: :background_check
+      transition basic_info: :background_check
       transition background_check: :confirmation
     end
 

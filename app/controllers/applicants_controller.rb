@@ -1,5 +1,5 @@
 class ApplicantsController < ApplicationController
-  before_action :authenticate, only: [:edit, :update, :show, :apply]
+  before_action :authenticate, only: [:edit, :update, :apply]
   before_action :logged_in?, only: [:new]
 
 
@@ -17,6 +17,10 @@ class ApplicantsController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
   def update
     if current_applicant.update(applicant_params)
       redirect_to apply_applicants_path
@@ -25,17 +29,13 @@ class ApplicantsController < ApplicationController
     end
   end
 
-  def show
-    # your code here
-  end
-
   # Managing multistep creation form, each step is rendered by apply and processed by next_step
   # It would work adding many steps as we need in the future
   def apply
   end
 
   def next_step
-    current_applicant.assign_attributes(applicant_params)
+    current_applicant.assign_attributes applicant_params
     current_applicant.next_step
     redirect_to apply_applicants_path
   end

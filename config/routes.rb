@@ -8,7 +8,6 @@ Rails.application.routes.draw do
       post :next_step
       get :edit
       put :update
-      get :show
     end
   end
 
