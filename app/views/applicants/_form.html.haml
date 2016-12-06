@@ -21,11 +21,6 @@
     .col-md-4.col-md-offset-4
       = f.select :phone_type, Applicant::PHONE_TYPES, { prompt: "Select Phone Type"}, {class: 'form-control', required: 'required'}
 
-  .form-inline
-    .col-md-4.col-md-offset-4
-      = f.check_box :over_21, class: 'form-control', required: 'required'
-      = f.label 'I am over 21'
-
   .form-group
     .col-md-offset-4.col-md-4
       =f.submit "Submit", class: 'call-to-action'

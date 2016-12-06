@@ -6,15 +6,13 @@ class Applicant < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: true, uniqueness: true, format: {with: /@/}
+  validates :email, presence: true, uniqueness: true
   validates :phone, presence: true, uniqueness: true, numericality: {only_integer: true}
   validates :phone_type, presence: true
   validates :workflow_state, presence: true
   validates :region, presence: true
-  validates :over_21, :acceptance => true
 
   before_validation :set_first_workflow_state, on: :create
-  before_save :set_workflow_state, on: :update
 
   state_machine :state, initial: :basic_info do
     event :next_step do
@@ -26,6 +24,7 @@ class Applicant < ActiveRecord::Base
     state :background_check
     state :confirmation
   end
+
 
   class << self
 
@@ -58,22 +57,11 @@ class Applicant < ActiveRecord::Base
       end
       formated_hash
     end
-
   end
 
   private
 
     def set_first_workflow_state
         self.workflow_state ||= WORKFLOW_STATES.first
-    end
-
-    def set_workflow_state
-      if self.state == 'basic_info'
-        self.workflow_state = WORKFLOW_STATES[0]
-      elsif self.state == 'background_check'
-        self.workflow_state = WORKFLOW_STATES[1]
-      elsif self.state == 'confirmation'
-        self.workflow_state = WORKFLOW_STATES[2]
-      end
     end
 end
