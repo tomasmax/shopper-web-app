@@ -24,7 +24,7 @@ feature 'Applicant' do
 
     click_button('Submit')
 
-    expect(page).to have_text("I give my authorization Instacart to investigate my background")
+    expect(page).to have_text("I hereby authorize and Instacart designated agents and representatives")
     click_button('Submit')
 
     expect(page).to have_text("Application Finished")
