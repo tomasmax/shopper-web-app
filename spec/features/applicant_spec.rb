@@ -7,7 +7,7 @@ feature 'Applicant' do
       click_link('Apply Now')
     end
     
-    elem = find(:css, '#applicant_name')
+    elem = find(:css, '#applicant_first_name')
     fill_in elem[:name], with: Faker::Name.name
 
     elem = find(:css, '#applicant_last_name')
@@ -17,7 +17,7 @@ feature 'Applicant' do
     fill_in elem[:name], with: Faker::Internet.email
 
     elem = find(:css, '#applicant_phone')
-    fill_in elem[:name], with: Faker::PhoneNumber.cell_phone
+    fill_in elem[:name], with: Faker::PhoneNumber.subscriber_number(10)
 
     select('San Francisco Bay Area', from: 'applicant[region]')
     select('Blackberry', from: 'applicant[phone_type]')
