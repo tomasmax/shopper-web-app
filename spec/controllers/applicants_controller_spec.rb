@@ -14,7 +14,7 @@ describe ApplicantsController do
         expect(Applicant.last.first_name).to eq(applicant_attributes[:first_name])
         expect(Applicant.last.last_name).to eq(applicant_attributes[:last_name])
         expect(Applicant.last.email).to eq(applicant_attributes[:email])
-        expect(Applicant.last.cell_phone).to eq(applicant_attributes[:phone])
+        expect(Applicant.last.phone).to eq(applicant_attributes[:phone])
         expect(Applicant.last.workflow_state).to eq(applicant_attributes[:workflow_state])
         expect(Applicant.last.phone_type).to eq(applicant_attributes[:phone_type])
         expect(Applicant.last.region).to eq(applicant_attributes[:region])
