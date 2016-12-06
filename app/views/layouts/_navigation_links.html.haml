@@ -1,4 +1,4 @@
 %li
   = link_to 'Funnel Analytics', funnels_path
 %li
-  = link_to('Application Status', login_path, class: 'login')
+  = link_to('Application Status', current_applicant ? apply_applicants_path : login_path)

@@ -8,7 +8,7 @@
     - %w(first_name last_name phone email phone_type region).each do |attribute|
       %ul
         %li
-          %strong
+          %b
             = attribute.titleize
           = current_applicant.send(attribute)
 
