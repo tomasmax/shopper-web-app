@@ -27,6 +27,6 @@ feature 'Applicant' do
     expect(page).to have_text("I hereby authorize and Instacart designated agents and representatives")
     click_button('Submit')
 
-    expect(page).to have_text("Application Finished")
+    expect(page).to have_text("Application finished")
   end
 end
