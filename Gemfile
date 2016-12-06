@@ -19,6 +19,7 @@ gem 'haml-rails'
 gem 'font-awesome-rails', '~> 4.7'
 #state_machines-active-record to create real application states for applicants
 gem 'state_machines-activerecord', '~> 0.4.0'
+gem 'faker', '~> 1.6'
 
 group :development do
   gem 'better_errors', '~> 2.1.1'
@@ -35,7 +36,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara', '~> 2.10.1'
   gem 'factory_girl_rails', '~> 4.7'
-  gem 'faker', '~> 1.6'
   gem 'database_cleaner', '~> 1.5'  
   gem 'simplecov'
 end

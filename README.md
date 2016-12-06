@@ -1,3 +1,20 @@
+
+## Local Setup
+1. `bundle install`
+2. `rake db:create`
+3. `rake db:migrate`
+4. `rake db:seed`
+5. `rails s`
+
+## Access to dev or prod deploy
+1. On your local server, visit http://localhost:3000 after local setup
+2. After seeding the db, visit path `/funnels.json?start_date=2014-12-01&end_date=2014-12-31` to see funnels analytics data
+3. Visit https://instacart-shopper-tom.herokuapp.com on your browser to see production deployment
+
+## Testing
+1. `rake db:test:prepare`
+2. `rspec`
+
 Shopper Challenge
 =================
 
